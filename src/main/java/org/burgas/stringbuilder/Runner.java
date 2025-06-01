@@ -9,6 +9,10 @@ public class Runner {
         CustomStringBuilder newStringBuilder = new CustomStringBuilder();
         newStringBuilder.append("New CustomStringBuilder object");
         out.println(newStringBuilder);
+        newStringBuilder.append(" + append");
+        out.println(newStringBuilder);
+        newStringBuilder.undo();
+        out.println(newStringBuilder);
         out.println();
 
         CustomStringBuilder customStringBuilder = new CustomStringBuilder("Hello World");
