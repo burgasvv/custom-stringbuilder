@@ -3,7 +3,10 @@ package org.burgas.stringbuilder;
 import static java.lang.String.*;
 import static java.lang.System.*;
 
-public class CustomStringBuilder {
+public final class CustomStringBuilder {
+
+    public static final String LAST_ELEMENT = "Only 1 element in StringBuilder history";
+    public static final String EMPTY_STRING = "Input string is empty";
 
     private char[] chars;
     private final CustomStringBuilderHistory history = new CustomStringBuilderHistory();
@@ -19,7 +22,7 @@ public class CustomStringBuilder {
 
     public CustomStringBuilder append(String string) {
         if (string == null)
-            throw new NullPointerException("Input string is empty");
+            throw new NullPointerException(EMPTY_STRING);
 
         char[] inputChars = string.toCharArray();
         char[] temp = new char[this.chars.length + string.length()];
@@ -36,8 +39,8 @@ public class CustomStringBuilder {
     }
 
     public void undo() {
-        if (this.history.getSnapshotHistory().size() == 1) {
-            out.println("Only 1 element in StringBuilder history");
+        if (this.history.getSnapshotHistory().size() <= 1) {
+            out.println(LAST_ELEMENT);
             return;
         }
 

@@ -3,7 +3,7 @@ package org.burgas.stringbuilder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CustomStringBuilderHistory {
+public final class CustomStringBuilderHistory {
 
     private final List<CustomStringBuilderSnapshot> snapshotHistory = new ArrayList<>();
 
